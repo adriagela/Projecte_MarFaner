@@ -3,6 +3,53 @@
 ### Poole Party🏆🔥
 ![JordanPoole](https://cdn.nba.com/headshots/nba/latest/1040x760/1629673.png)
 ### Base de dades:
+import sqlite3
+
+base1 = sqlite3.connect("projecte.db")
+
+p = base1.cursor()
+
+#Funció per crear una taula nova.
+def crear_taula():
+    p.execute("""create table puntuacio (
+              id integer, 
+              usuari text, 
+              punts integer
+              )""")
+
+#Per crear la taula si no hi està:
+#crear_taula()
+
+#Funció per inserir una nova fila.
+def inserir(id, usuari, punts):
+    p.execute("INSERT INTO puntuacio (id, usuari, punts) values (?, ?, ?)", (id, usuari, punts))
+
+#Per crear una nova fila:
+#inserir(..., "...", ...)
+#En el 1er i 3er lloc van nombres i en el 2n van lletres, per això es fan servir "".
+
+#Funció per eliminar una fila on id = 1.
+def eliminar1():
+    p.execute("DELETE FROM puntuacio WHERE id = 1;")
+
+#Funció per eliminar una fila on id = 2.
+def eliminar2():
+    p.execute("DELETE FROM puntuacio WHERE id = 2;")
+
+
+#Per eliminar una fila on id = 1:
+#eliminar1()
+
+#Per poder executar tot el que hi ha a la taula:
+p.execute("SELECT * FROM puntuacio")
+
+#Per escriure tot el que seleccionat amb la funció prèvia:
+print(p.fetchall())
+
+#Per poder guardar i tancar la base:
+base1.commit()
+base1.close
+
 ### Codi momentani del projecte foc foc foc:
 import pygame
 import random
