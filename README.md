@@ -2,7 +2,7 @@
 ## Es millor projecte de s'història.
 ### Poole Party🏆🔥
 ![JordanPoole](https://cdn.nba.com/headshots/nba/latest/1040x760/1629673.png)
-### Base de dades:
+## Base de dades:
 import sqlite3
 
 base1 = sqlite3.connect("projecte.db")
@@ -50,7 +50,7 @@ print(p.fetchall())
 base1.commit()
 base1.close
 
-### Codi momentani del projecte foc foc foc:
+## Codi momentani del projecte foc foc foc:
 import pygame
 import random
 
